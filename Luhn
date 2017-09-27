@@ -1,0 +1,27 @@
+import string
+def Luhn(number):
+	sum=0
+	condition=""
+	number=number.replace(" ","")
+	print number
+	try: 
+		int(number)
+		condition="True"
+	except ValueError:
+		condition="False"
+	if(condition=="True"):
+		for count in range(0,len(number)):
+			digit = int(number[count])
+			if((count-1)%2==0):
+				digit=digit*2
+			elif(count==0):
+				digit=digit*2
+			if (digit>9):
+				digit=digit-9
+			sum=sum+digit
+		print((sum%10)==0)
+	else:
+		print False
+if __name__ == '__main__':
+	num=raw_input()
+	Luhn(num)
